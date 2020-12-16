@@ -1,0 +1,39 @@
+
+
+.wood-nav-title{
+  font-weight: 600;
+  font-size: 35px;
+  color: goldenrod !important;
+  font-family: 'Eczar', serif;
+}
+.nav-container{
+    background-color: #424242;
+    font-family: 'Eczar', serif;
+}
+.nav-menu-items{
+    font-size: 20px;
+    color: whitesmoke !important;
+}
+
+.hero {
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/clem-onojeghuo-hdW4rZPHe2g-unsplash.jpg) center no-repeat;
+  background-size: cover;
+  > h2{
+    color: whitesmoke;
+    font-family: 'Eczar', serif;
+    margin-bottom: 5em;
+  }
+
+  }
+  .hero__inner {
+  max-width: 1080px;
+  height: 500px;
+  }
+  .about-container{
+    
+      font-family: 'Eczar', serif;
+    
+
+    background-color: #55775A;
+    height: 100vh;
+  }
