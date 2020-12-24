@@ -1,5 +1,5 @@
-
-
+@import url('https://fonts.googleapis.com/css2?family=Eczar&display=swap');
+@import "~bootstrap/scss/bootstrap";
 .wood-nav-title{
   font-weight: 600;
   font-size: 35px;
@@ -10,30 +10,40 @@
     background-color: #424242;
     font-family: 'Eczar', serif;
 }
-.nav-menu-items{
-    font-size: 20px;
-    color: whitesmoke !important;
+
+.nav-menu-items a{
+font-size: 20px;
+color: whitesmoke !important;
 }
+.art img{
+  transition: transform 0.3s ease-out;
+  &:hover{
+      transform: scale(1.075);
+  }
+}  
+
+
+
 
 .hero {
   background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/clem-onojeghuo-hdW4rZPHe2g-unsplash.jpg) center no-repeat;
   background-size: cover;
   > h2{
-    color: whitesmoke;
+    color:whitesmoke;
     font-family: 'Eczar', serif;
-    margin-bottom: 5em;
+    
   }
-
+  
+  }
+  .home-container {
+    background-color: #424242;
   }
   .hero__inner {
   max-width: 1080px;
-  height: 500px;
+  height: 350px;
   }
-  .about-container{
-    
+  .about-container{ 
       font-family: 'Eczar', serif;
-    
-
     background-color: #55775A;
     height: 100vh;
   }

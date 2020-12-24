@@ -11,6 +11,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Router\CrudUrlGenerator;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
+
 
 class DashboardController extends AbstractDashboardController
 {
@@ -24,9 +26,9 @@ class DashboardController extends AbstractDashboardController
       //return parent::index();
       return $this->redirect($routeBuilder->setController(ArticleCrudController::class)->generateUrl());
     }
-    /**
+      /*
      * @Route("/user", name="user")
-     */
+    
     public function userSection(): Response
     {
        
@@ -34,7 +36,7 @@ class DashboardController extends AbstractDashboardController
       //return parent::index();
       return $this->redirect($routeBuilder->setController(UserCrudController::class)->generateUrl());
     }
-
+     */
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
@@ -46,6 +48,7 @@ class DashboardController extends AbstractDashboardController
            yield MenuItem::linktoDashboard('Dashboard', 'fa fa-home');
          //  yield MenuItem::linkToDashboard('Users', 'fas fa-user-friends');
          yield MenuItem::linkToCrud('Articles', 'far fa-newspaper', Article::class)
+            ->setPermission('ROLE_ADMIN')
             ->setController(ArticleCrudController::class);
           yield MenuItem::linkToCrud('Users', 'fas fa-user-friends', User::class)
             ->setController(UserCrudController::class);
