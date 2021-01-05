@@ -1,9 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Eczar&display=swap');
 @import "~bootstrap/scss/bootstrap";
+
+
 .wood-nav-title{
   font-weight: 600;
   font-size: 35px;
-  color: goldenrod !important;
+  color: #daa520 !important;
   font-family: 'Eczar', serif;
 }
 .nav-container{
@@ -11,22 +13,22 @@
     font-family: 'Eczar', serif;
 }
 
-.nav-menu-items a{
-font-size: 20px;
-color: whitesmoke !important;
-}
 .art img{
   transition: transform 0.3s ease-out;
   &:hover{
       transform: scale(1.075);
   }
 }  
-
-
-
-
+.alpha a{
+  color: whitesmoke !important;
+    font-size: 20px; 
+  transition: 0.3s;
+  }
+  .alpha a:hover{
+    color: goldenrod !important; 
+   }
 .hero {
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/clem-onojeghuo-hdW4rZPHe2g-unsplash.jpg) center no-repeat;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/clint-patterson-2IE8wdRgLK8-unsplash.jpg) center no-repeat;
   background-size: cover;
   > h2{
     color:whitesmoke;
@@ -36,6 +38,12 @@ color: whitesmoke !important;
   
   }
   .home-container {
+    .img-article{
+      border-radius: .2em;
+    }
+    article{
+      border-radius: .2em;
+    }
     background-color: #424242;
   }
   .hero__inner {
@@ -43,7 +51,55 @@ color: whitesmoke !important;
   height: 350px;
   }
   .about-container{ 
+      p{
+        line-height: 1.6;
+      }
+      img{
+        width: 450px;
+        height: 450px;
+      }
       font-family: 'Eczar', serif;
-    background-color: #55775A;
-    height: 100vh;
   }
+  .smoky-text{
+    h1,h3{
+      letter-spacing: 2px;
+    }
+    color: lightgray;
+  }
+
+  .show-bg{
+    background-color: whitesmoke;
+  }
+  body {
+     background: #424242 !important;
+     }
+  .navbar
+  {
+      border-bottom:2px solid goldenrod;
+  }
+  .contact-title{
+    color: lightgray;
+    font-family: 'Eczar', serif;
+  }
+  .contact-container{
+    margin-top: 3em;
+    .contact-message{
+      border: 2px solid goldenrod;
+      height: 170px;
+    }
+    .contact-fields{
+      border: 2px solid goldenrod;
+    }
+    .contact-button{
+      background-color: #424242;
+      color:whitesmoke ;
+      border: 2px solid goldenrod;
+    }
+    .contact-button:hover{
+      background-color: whitesmoke;
+      color: goldenrod;
+      border: 2px solid goldenrod ;
+    }
+  }
+
+

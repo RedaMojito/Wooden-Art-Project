@@ -10,17 +10,17 @@
        </div> 
        </div>
         
-         <div class="home-container row pl-5 pr-5">
+         <div class="home-container row row-cols-5 pl-5 pr-5">
        {% for article in articles %}
-                <div class="col-sm-3 mt-5">
-                     <article class="art bg-white rounded shadow">
-                        <div class="mw-100 rounded-top overflow-hidden">
-                            <a href="#">
+                <div class="col mt-5">
+                     <article class="art bg-white shadow">
+                        <div class="img-article mw-100 overflow-hidden">
+                            <a href="{{ path('app-articles-show', {id: article.id})}}">
                                 <img class="w-100 mb-3" src="{{ vich_uploader_asset(article, 'imageFile') | imagine_filter('squared_thumbnail_medium') }}" alt="{{ article.title }}" />
                             </a>
                         </div>
                         
-                        <h4 class="text-center"><a class="text-secondary " href="#">{{ article.title }}</a></h4>
+                        <h4 class="text-center"><a class="text-secondary " href="{{ path('app-articles-show', {id: article.id})}}">{{ article.title }}</a></h4>
                         
                         <p class="pb-3 pl-3 text-muted text-wrap text-center font-weight-bold ">{{ article.price|slice(0,3) }}.00 DH</p>
                     </article>

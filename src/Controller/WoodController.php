@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\User;
+use App\Entity\Article;
 use App\Repository\ArticleRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -28,6 +29,14 @@ class WoodController extends AbstractController
     public function about(): Response
     {
         return $this->render('wood/about.html.twig');
+    }
+
+      /**
+     * @Route("/articles/{id<[0-9]+>}", name="app-articles-show", methods="GET")
+     */
+    public function show(Article $article): Response
+    {
+        return $this->render('wood/show.html.twig', compact('article'));
     }
     /**
      * @Route("/adduser", name="create_user")

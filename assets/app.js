@@ -7,8 +7,11 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 //import './styles/app.css';
-
+require('@fortawesome/fontawesome-free/css/all.min.css');
+require('@fortawesome/fontawesome-free/js/all.js');
+require('./images/woodLamp2.jpg');
 import './styles/app.scss';
+
 // start the Stimulus application
 import $ from 'jquery';
 //var $ = require('jquery');
