@@ -58,6 +58,7 @@ class ArticleCrudController extends AbstractCrudController
             TextareaField::new('description'),
             MoneyField::new('price')->setCurrency('MAD'),
             AssociationField::new('user'),
+            AssociationField::new('Category'),
             ImageField::new('imageName', 'Image')
                 ->onlyOnIndex()
                 ->setBasePath('/images/articles'),

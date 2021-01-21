@@ -2,8 +2,7 @@
 
 namespace App\Controller\Admin;
 
-
-
+use App\Entity\Category;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
@@ -52,6 +51,8 @@ class DashboardController extends AbstractDashboardController
             ->setController(ArticleCrudController::class);
           yield MenuItem::linkToCrud('Users', 'fas fa-user-friends', User::class)
             ->setController(UserCrudController::class);
+          yield MenuItem::linkToCrud('Categories', 'fa fa-list-alt', Category::class)
+          ->setController(CategoryCrudController::class);
           
     }
 

@@ -14,12 +14,19 @@
         <li class="nav-item">
             <a class="nav-link" href="{{path('wood_about')}}">Á PROPOS</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">SERVICES</a>
+     
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">CATEGORIES</span> <span class="caret"></span></a>
+            <ul class="categorie-sub nav-container dropdown-menu">
+                {% for category in categories %}
+                <li><a class="ml-3" href="{{ path('wood_category', {categoryId: category.id})}}"> {{category.name}}</a></li>
+                {% endfor %}
+            </ul>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{path('contact')}}">CONTACT</a>
+            <a class="nav-link" href="{{path('wood_contact')}}">CONTACT</a>
         </li>
+      
         </ul>
     </div>
     </div>

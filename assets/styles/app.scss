@@ -12,6 +12,14 @@
     background-color: #424242;
     font-family: 'Eczar', serif;
 }
+.navbar-nav li:hover > ul.dropdown-menu {
+  display: block;
+}
+.categorie-sub{
+  a{
+    text-decoration: none !important;
+  }
+}
 
 .art img{
   transition: transform 0.3s ease-out;
@@ -19,10 +27,17 @@
       transform: scale(1.075);
   }
 }  
+.art {
+  > h5{
+    > a{
+       text-decoration: none !important;
+    }
+  }
+}
 .alpha a{
   color: whitesmoke !important;
     font-size: 20px; 
-  transition: 0.3s;
+  transition: 0.5s;
   }
   .alpha a:hover{
     color: goldenrod !important; 

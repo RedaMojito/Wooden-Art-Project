@@ -66,6 +66,12 @@ class Article
      */
     private $user;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="articles")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $Category;
+
 
     public function __construct()
     {
@@ -175,5 +181,17 @@ class Article
     }
     public function __toString() {
         return (string) $this->user;
+    }
+
+    public function getCategory(): ?Category
+    {
+        return $this->Category;
+    }
+
+    public function setCategory(?Category $Category): self
+    {
+        $this->Category = $Category;
+
+        return $this;
     }
 }
