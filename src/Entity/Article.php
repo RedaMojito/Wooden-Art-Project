@@ -2,9 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\ArticleRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ArticleRepository;
+use Doctrine\Common\Collections\Collection;
 use Symfony\Component\HttpFoundation\File\File;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
@@ -19,44 +22,34 @@ class Article
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * 
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * 
      */
     private $title;
 
     /**
      * @ORM\Column(type="text")
+     * 
      */
     private $description;
 
     /**
      * @ORM\Column(type="integer")
+     * 
      */
     private $price;
 
-    /**
-     * @ORM\Column(type="string")
-     *
-     * @var string|null
-     */
-    private $imageName;
-
-    /**
-     * NOTE: This is not a mapped field of entity metadata, just a simple property.
-     * 
-     * @Vich\UploadableField(mapping="article_image", fileNameProperty="imageName")
-     * 
-     * @var File|null
-     */
-    private $imageFile;
 
   
 
     /**
      * @ORM\Column(type="datetime")
+     * 
      */
     private $created_at;
 
@@ -72,10 +65,17 @@ class Article
      */
     private $Category;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Attachement::class, mappedBy="article", orphanRemoval=true, cascade={"persist"})
+     * 
+     */
+    private $attachements;
+
 
     public function __construct()
     {
         $this->created_at = new \DateTime();
+        $this->attachements = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -120,40 +120,9 @@ class Article
     }
 
 
-    /**
-     * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
-     * of 'UploadedFile' is injected into this setter to trigger the update. If this
-     * bundle's configuration parameter 'inject_on_load' is set to 'true' this setter
-     * must be able to accept an instance of 'File' as the bundle will inject one here
-     * during Doctrine hydration.
-     *
-     * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile|null $imageFile
-     */
-    public function setImageFile(?File $imageFile = null): void
-    {
-        $this->imageFile = $imageFile;
 
-        if (null !== $imageFile) {
-            // It is required that at least one field changes if you are using doctrine
-            // otherwise the event listeners won't be called and the file is lost
-            $this->created_at = new \DateTime();
-        }
-    }
 
-    public function getImageFile(): ?File
-    {
-        return $this->imageFile;
-    }
 
-    public function setImageName(?string $imageName): void
-    {
-        $this->imageName = $imageName;
-    }
-
-    public function getImageName(): ?string
-    {
-        return $this->imageName;
-    }
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
@@ -191,6 +160,36 @@ class Article
     public function setCategory(?Category $Category): self
     {
         $this->Category = $Category;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Attachement[]
+     */
+    public function getAttachements(): Collection
+    {
+        return $this->attachements;
+    }
+
+    public function addAttachement(Attachement $attachement): self
+    {
+        if (!$this->attachements->contains($attachement)) {
+            $this->attachements[] = $attachement;
+            $attachement->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAttachement(Attachement $attachement): self
+    {
+        if ($this->attachements->removeElement($attachement)) {
+            // set the owning side to null (unless already changed)
+            if ($attachement->getArticle() === $this) {
+                $attachement->setArticle(null);
+            }
+        }
 
         return $this;
     }

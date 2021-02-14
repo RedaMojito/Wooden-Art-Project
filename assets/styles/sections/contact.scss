@@ -1,0 +1,24 @@
+.contact-title{
+    color: #603720;
+    font-family: 'Eczar', serif;
+  }
+  .contact-container{
+    margin-top: 3em;
+    .contact-message{
+      border: 2px solid goldenrod;
+      height: 170px;
+    }
+    .contact-fields{
+      border: 2px solid goldenrod;
+    }
+    .contact-button{
+      background-color: goldenrod;
+      color:whitesmoke ;
+      border: 2px solid whitesmoke;
+    }
+    .contact-button:hover{
+      background-color: whitesmoke;
+      color: goldenrod;
+      border: 2px solid goldenrod ;
+    }
+  }

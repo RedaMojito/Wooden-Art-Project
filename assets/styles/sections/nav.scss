@@ -1,0 +1,41 @@
+.navbar
+{
+    border-bottom:2px solid #B78C57;
+}
+.wood-nav-title{
+    font-weight: 600;
+    font-size: 35px;
+    color: #603720 !important;
+    font-family: 'Eczar', serif;
+    //font-family: 'Bodoni Moda', serif;
+    //font-family: 'Roboto', sans-serif;
+  }
+  .nav-container{
+     // background-color: lighten(#424242, 30%) ;
+    // background-color: #E4C493;
+      background-color: #CAA891;
+      //background-color: #CAA891A8;
+      font-family: 'Eczar', serif;
+    //font-family: 'Bodoni Moda', serif;
+    //font-family: 'Roboto', sans-serif;
+  }
+  .navbar-nav li:hover > ul.dropdown-menu {
+    display: block;
+  }
+  .categorie-sub{
+    a{
+        padding: 0 4px 0 4px;
+      text-decoration: none !important;
+    }
+  }
+
+  .alpha a{
+    color: #603720 !important;
+      font-size: 20px; 
+    transition: 0.5s;
+    }
+    .alpha a:hover{
+      color: floralwhite !important; 
+      background-color: #443F3c;
+      border-radius: 3px;
+     }

@@ -14,6 +14,12 @@ import './styles/app.scss';
 
 // start the Stimulus application
 import $ from 'jquery';
+/*
+$("#click-attachement").click(function(){
+    console.log('clicked');
+});
+*/
+import './showDetail.js';
 //var $ = require('jquery');
 //window.$ = $;
 //window.jQuery = $;

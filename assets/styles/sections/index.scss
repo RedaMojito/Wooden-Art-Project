@@ -1,0 +1,45 @@
+.hero {
+    background: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url(../../images/deco-brico-cover.jpg) center no-repeat;
+    background-size: cover;
+    > h2{
+      color: #E4C493 ;
+      font-family: 'Eczar', serif;
+     //font-family: 'Bodoni Moda', serif;
+    }
+    
+    @media (max-width: 35em) {
+        
+    }
+
+    }
+    .home-container {
+        margin: 1.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 1.5rem;
+      .img-article{
+        border-radius: 2px;
+      }
+      article{
+        border-radius: 2px;
+      }
+      //background-color: #E4C493 ;
+      // background-color: #CAA891A8;
+    }
+    .hero__inner {
+    max-width: 1080px;
+    height: 450px;
+    }
+    .art img{
+        transition: transform 0.3s ease-out;
+        &:hover{
+            transform: scale(1.075);
+        }
+      }  
+      .art {
+        > h5{
+          > a{
+             text-decoration: none !important;
+          }
+        }
+      }

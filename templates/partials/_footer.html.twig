@@ -1,8 +1,13 @@
-<footer class="container text-center mt-5">
-    <p class="text-muted">
-        <small>
+<footer class="footer-container container text-center">
+    <p class="text-muted ">
+        <div class="d-inline-flex">
+        <h2><a href="https://www.instagram.com/deco__brico/?hl=fr" target="_blank"> <i class="fab fa-instagram social-media-icon mr-3"></i></a> </h2> 
+        <h2> <a href=""> <i class="fab fa-whatsapp social-media-icon"></i> </a> </h2>
+        </div>
+        <br/>
+        <small class="footer-text">
         &copy; {{ 'now'|date('Y') }} &middot;
-        Built with <span class="text-danger">&hearts;</span> by <a href="{{path('wood_about')}}">Nidal</a>
+        Built with <span class="heart">&hearts;</span> by <a href="{{path('wood_about')}}">Nidal</a>
        </small>
     </p>
 </footer>

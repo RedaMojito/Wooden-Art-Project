@@ -5,22 +5,24 @@
 {% block body %}
 
        <div class="hero d-flex justify-content-center align-items-center">
-              <h2 class="align-self-center">Team collaboration done right</h2>
+              <h2 class="text-center">Decouvrir nos articles</h2>
               <div class="hero__inner">
        </div> 
        </div>
         
-         <div class="home-container row row-cols-5 pl-5 pr-5">
+         <div class=" home-container ">
        {% for article in articles %}
-                <div class="col mt-5">
+                <div class="">
                      <article class="art bg-white shadow">
                         <div class="img-article mw-100 overflow-hidden">
                             <a href="{{ path('app-articles-show', {id: article.id})}}">
-                                <img class="w-100 mb-3" src="{{ vich_uploader_asset(article, 'imageFile') | imagine_filter('squared_thumbnail_medium') }}" alt="{{ article.title }}" />
+                                <img class="w-100 mb-3" 
+                                 src="{{vich_uploader_asset(article.attachements|first , 'imageFile') | imagine_filter('squared_thumbnail_medium') }}" 
+                                 alt="{{ article.title }}" />
                             </a>
                         </div>
                         
-                        <h5 class="text-center font-weight-light"><a class="text-secondary " href="{{ path('app-articles-show', {id: article.id})}}">{{ article.title }}</a></h5>
+                        <h5 class="text-center font-weight-light"><a class="text-secondary " href="{{ path('app-articles-show', {id: article.id})}}">{{ article.title|truncate(15, true) }}</a></h5>
                         
                         <p class="pb-3 pl-3 text-muted text-wrap text-center font-weight-bold ">{{ article.price|slice(0,3) }}.00 DH</p>
                     </article>

@@ -5,6 +5,9 @@ namespace App\Controller\Admin;
 use App\Entity\Article;
 use App\Service\VichImageFieldService;
 use App\Controller\Admin\Field\VichImageField;
+use App\Form\AttachementType;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -15,6 +18,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
 
 class ArticleCrudController extends AbstractCrudController
 {   
@@ -59,10 +63,10 @@ class ArticleCrudController extends AbstractCrudController
             MoneyField::new('price')->setCurrency('MAD'),
             AssociationField::new('user'),
             AssociationField::new('Category'),
-            ImageField::new('imageName', 'Image')
-                ->onlyOnIndex()
-                ->setBasePath('/images/articles'),
-            VichImageField::new('imageFile')->hideOnIndex()
+            CollectionField::new('attachements')
+            ->setFormTypeOption('by_reference', false)
+            ->setEntryType(AttachementType::class)
+            ->onlyOnForms()
          /*
             
             ImageField::new('imageFile', 'Image')
@@ -74,7 +78,15 @@ class ArticleCrudController extends AbstractCrudController
         */
         ];
     }
-
-
+/*
+    public function configureActions(Actions $actions): Actions
+    {  
+      //  dd($actions->add(Crud::PAGE_INDEX, Action::DETAIL));
+        return $actions
+          ->add(Crud::PAGE_INDEX, Action::DETAIL);
+       
+        
+    } 
+*/
   
 }
